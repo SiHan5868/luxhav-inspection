@@ -1,0 +1,22 @@
+{
+  "name": "Luxhav Oversight Report",
+  "short_name": "Luxhav Oversight",
+  "description": "Luxhav Priv\u00e9 Property Inspection & Oversight Report",
+  "start_url": "/luxhav-inspection/Luxhav_Oversight_Report_v1.6.html",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#C9A84C",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
