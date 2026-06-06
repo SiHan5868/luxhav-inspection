@@ -404,12 +404,26 @@ let saveTimer = null;
 // ═══════════════ EXPORT / IMPORT ══════════════════════════════════════════════
 function exportData(){
   try {
-    const data = JSON.parse(localStorage.getItem('luxhav_v2') || '{}');
-    const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+    // Collect all app data — state + all photo keys
+    const exportObj = {};
+    const state = localStorage.getItem('lhp_state');
+    if(state) exportObj['lhp_state'] = state;
+    for(let i = 0; i < localStorage.length; i++){
+      const k = localStorage.key(i);
+      if(k && k.startsWith('lhp_ph_')){
+        exportObj[k] = localStorage.getItem(k);
+      }
+    }
+    const blob = new Blob([JSON.stringify(exportObj, null, 2)], {type: 'application/json'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    const ref = (document.getElementById('f_ref') || {}).value || 'inspection';
-    const date = (document.getElementById('f_date') || {}).value || new Date().toISOString().slice(0,10);
+    let ref = 'inspection';
+    let date = new Date().toISOString().slice(0,10);
+    try {
+      const st = JSON.parse(state || '{}');
+      ref = st.f_ref || ref;
+      date = st.f_date || date;
+    } catch(e){}
     a.href = url;
     a.download = 'Luxhav_' + ref + '_' + date + '.json';
     document.body.appendChild(a);
@@ -427,8 +441,11 @@ function importData(input){
   const reader = new FileReader();
   reader.onload = function(e){
     try {
-      const data = JSON.parse(e.target.result);
-      localStorage.setItem('luxhav_v2', JSON.stringify(data));
+      const exportObj = JSON.parse(e.target.result);
+      // Restore all keys
+      Object.keys(exportObj).forEach(function(k){
+        localStorage.setItem(k, exportObj[k]);
+      });
       showToast('Data imported — reloading...');
       setTimeout(function(){ location.reload(); }, 1200);
     } catch(err) {
