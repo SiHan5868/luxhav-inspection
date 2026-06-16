@@ -566,7 +566,7 @@ The main structural elements appeared sound, with no significant defects or safe
 
 Routine maintenance and minor repairs may be required from time to time to preserve the property's condition; however, no major remedial works are currently considered necessary. Overall, the property presents as a well-maintained asset that is fit for its intended use and demonstrates a satisfactory standard of upkeep.</div></div></div>
 <div class="section reveal" id="cr-sec-signoff"><p class="sec-eyebrow">07</p><h2 class="sec-title">Inspector <em>Sign-Off</em></h2><p class="sec-sub">Report authentication and certification</p>
-<div class="info-grid" style="margin-bottom:1px"><div class="info-cell"><div class="info-label">Inspector Full Name</div><div class="info-val">Tom Jones</div></div><div class="info-cell"><div class="info-label">Inspector ID</div><div class="info-val">TJ1234</div></div><div class="info-cell"><div class="info-label">Report Date</div><div class="info-val">07 June 2026</div></div><div class="info-cell"><div class="info-label">Submitted</div><div class="info-val">09:18</div></div><div class="info-cell"><div class="info-label">Prepared For</div><div class="info-val">Mr Halvorsen</div></div><div class="info-cell"><div class="info-label">Membership</div><div class="info-val">On Demand</div></div></div>
+<div class="info-grid" style="margin-bottom:1px"><div class="info-cell"><div class="info-label">Inspector Full Name</div><div class="info-val">Tom Jones</div></div><div class="info-cell"><div class="info-label">Inspector ID</div><div class="info-val">TJ1234</div></div><div class="info-cell"><div class="info-label">Report Date</div><div class="info-val">07 June 2026</div></div><div class="info-cell"><div class="info-label">Submitted</div><div class="info-val">09:30</div></div><div class="info-cell"><div class="info-label">Prepared For</div><div class="info-val">Mr Halvorsen</div></div><div class="info-cell"><div class="info-label">Membership</div><div class="info-val">On Demand</div></div></div>
 <div style="margin-top:1px;margin-bottom:1px"><div class="info-cell" style="background:var(--dark-surface);border:1px solid rgba(184,151,106,0.08)"><div class="info-label">Inspector Signature</div></div></div>
 <div class="sig-box">Tom Jones</div>
 <div class="sop-block"><div class="sop-label">SOP Confirmation &amp; Declaration</div>
@@ -619,8 +619,8 @@ function crInitObservers(){
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)lks.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id);});});},{threshold:0.2,rootMargin:"-62px 0px -50% 0px"});
   scs.forEach(function(s){io.observe(s);});
   var rv=document.querySelectorAll(".reveal");
-  var ro=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");ro.unobserve(e.target);}});},{threshold:0.08});
-  rv.forEach(function(el){ro.observe(el);});
+  rv.forEach(function(el){el.classList.add("visible");});
+  if(window.innerWidth<=1024){var pb=document.getElementById("pdf-btn");if(pb)pb.style.display="none";}
 }
 document.getElementById("cr-lb").addEventListener("click",function(e){if(e.target===this)this.classList.remove("open");});
 </script>
