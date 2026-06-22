@@ -1,0 +1,19 @@
+{
+  "name": "Luxhav Privé — Property Oversight",
+  "short_name": "Luxhav Oversight",
+  "description": "Luxhav Privé inspector application for private-residence oversight inspections and client report generation.",
+  "start_url": "./Luxhav_Oversight_App_v6.0.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#14130F",
+  "theme_color": "#14130F",
+  "lang": "en",
+  "icons": [
+    { "src": "icons/luxhav-icon-152.png", "sizes": "152x152", "type": "image/png" },
+    { "src": "icons/luxhav-icon-167.png", "sizes": "167x167", "type": "image/png" },
+    { "src": "icons/luxhav-icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "icons/luxhav-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/luxhav-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
